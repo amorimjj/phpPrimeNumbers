@@ -1,6 +1,6 @@
 <?php
 
-include '../PrimeVerify.php';
+include_once '../PrimeVerify.php';
 
 /**
  * PrimeVerify
@@ -55,49 +55,57 @@ class PrimeVerifyTest extends PHPUnit_Framework_TestCase {
     
     public function testIsPrime_WhenReceiveNumber1_ShouldReturnFalse()
     {
-        $verify = new PrimeVerify(1);
+        $verify = new PrimeVerify();
+        $verify->setNumber(1);
         $this->assertFalse($verify->isPrime());
     }
     
     public function testIsPrime_WhenReceiveNumber2_ShouldReturnTrue()
     {
-        $verify = new PrimeVerify(2);
+        $verify = new PrimeVerify();
+        $verify->setNumber(2);
         $this->assertTrue($verify->isPrime());
     }
     
     public function testIsPrime_WhenReceiveNumber3_ShouldReturnTrue()
     {
-        $verify = new PrimeVerify(3);
+        $verify = new PrimeVerify();
+        $verify->setNumber(3);
         $this->assertTrue($verify->isPrime());
     }
     
     public function testIsEven_WhenReceiveNumber3_ShouldReturnTrue()
     {
-        $verify = new PrimeVerify(3);
+        $verify = new PrimeVerify();
+        $verify->setNumber(3);
         $this->assertFalse($verify->isEven());
     }
     
     public function testIsEven_WhenReceiveNumber4_ShouldReturnTrue()
     {
-        $verify = new PrimeVerify(4);
+        $verify = new PrimeVerify();
+        $verify->setNumber(4);
         $this->assertTrue($verify->isEven());
     }
     
     public function testHasAnothersDivisorsGreaterThanOne_WhenReceiveNumber4_ShouldReturnTrue()
     {
-        $verify = new PrimeVerify(4);
+        $verify = new PrimeVerify();
+        $verify->setNumber(4);
         $this->assertTrue($verify->hasAnothersDivisorsGreaterThanOne());
     }
     
     public function testHasAnothersDivisorsGreaterThanOne_WhenReceiveNumber9_ShouldReturnTrue()
     {
-        $verify = new PrimeVerify(9);
+        $verify = new PrimeVerify();
+        $verify->setNumber(9);
         $this->assertTrue($verify->hasAnothersDivisorsGreaterThanOne());
     }
     
     public function testHasAnothersDivisorsGreaterThanOne_WhenReceiveNumber5_ShouldReturnFalse()
     {
-        $verify = new PrimeVerify(5);
+        $verify = new PrimeVerify();
+        $verify->setNumber(5);
         $this->assertFalse($verify->hasAnothersDivisorsGreaterThanOne());
     }
     
@@ -108,7 +116,8 @@ class PrimeVerifyTest extends PHPUnit_Framework_TestCase {
      */
     public function testIsEven_WhenRequested_ShouldReturnCorrectValue($number, $isEven)
     {
-        $verify = new PrimeVerify($number);
+        $verify = new PrimeVerify();
+        $verify->setNumber($number);
         $this->assertEquals($verify->isEven(), $isEven);
     }
     
@@ -118,7 +127,8 @@ class PrimeVerifyTest extends PHPUnit_Framework_TestCase {
      */
     public function testIsPrime_WhenReceiveAnEvenNumberGreaterThan2_ShouldReturnFalse($evenNumber)
     {
-        $verify = new PrimeVerify($evenNumber);
+        $verify = new PrimeVerify();
+        $verify->setNumber($evenNumber);
         $this->assertFalse($verify->isPrime());
     }
     
@@ -128,7 +138,8 @@ class PrimeVerifyTest extends PHPUnit_Framework_TestCase {
      */
     public function testIsPrime_WhenReceiveAPrimeNumber_ShouldReturnTrue($primerNumber)
     {
-        $verify = new PrimeVerify($primerNumber);
+        $verify = new PrimeVerify();
+        $verify->setNumber($primerNumber);
         $this->assertTrue($verify->isPrime());
     }
     
@@ -138,7 +149,8 @@ class PrimeVerifyTest extends PHPUnit_Framework_TestCase {
      */
     public function testIsPrime_WhenReceiveANotPrimeNumber_ShouldReturnFalse($notPrimerNumber)
     {
-        $verify = new PrimeVerify($notPrimerNumber);
+        $verify = new PrimeVerify();
+        $verify->setNumber($notPrimerNumber);
         $this->assertFalse($verify->isPrime());
     }
 }

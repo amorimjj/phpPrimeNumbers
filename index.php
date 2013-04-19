@@ -1,11 +1,12 @@
 <?php
-require 'PrimeVerify.php';
+require_once 'PrimeVerify.php';
+require_once 'PrimeGenerator.php';
 
 $number = $argv[1];
 
-$verify = new PrimeVerify($number);
+$generator = new PrimeGenerator(new PrimeVerify());
 
-echo 'Number "' . $number . '" ' . ($verify->isPrime() ? 'is' : 'isn\'t') . ' prime';
+$generator->generateUntil($number);
 
 ;
 ?>

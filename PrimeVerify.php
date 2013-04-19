@@ -9,7 +9,7 @@ class PrimeVerify {
     
     private $_number;
     
-    public function __construct($number)
+    public function setNumber($number)
     {
         $this->_number = $number;
     }
